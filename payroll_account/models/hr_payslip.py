@@ -36,11 +36,11 @@ class HrPayslip(models.Model):
         if "journal_id" in self.env.context:
             for vals in vals_list:
                 vals["journal_id"] = self.env.context.get("journal_id")
-        return super().create(vals_list)
+        return super(HrPayslip, self).create(vals_list)
 
     @api.onchange("contract_id")
     def onchange_contract(self):
-        res = super().onchange_contract()
+        res = super(HrPayslip, self).onchange_contract()
         self.journal_id = (
             self.contract_id.journal_id.id
             or (not self.contract_id and self.default_get(["journal_id"])["journal_id"])
@@ -56,10 +56,10 @@ class HrPayslip(models.Model):
             else:
                 payslip.move_id._reverse_moves()
                 payslip.move_id = False
-        return super().action_payslip_cancel()
+        return super(HrPayslip, self).action_payslip_cancel()
 
     def action_payslip_done(self):
-        res = super().action_payslip_done()
+        res = super(HrPayslip, self).action_payslip_done()
 
         for slip in self:
             line_ids = []
@@ -155,7 +155,7 @@ class HrPayslip(models.Model):
                         {
                             "name": line.name,
                             "partner_id": line._get_partner_id(credit_account=False)
-                            or slip.employee_id.work_contact_id.id,
+                            or slip.employee_id.address_home_id.id,
                             "account_id": debit_account_id,
                             "journal_id": slip.journal_id.id,
                             "date": date,
@@ -178,7 +178,7 @@ class HrPayslip(models.Model):
                         {
                             "name": line.name,
                             "partner_id": line._get_partner_id(credit_account=True)
-                            or slip.employee_id.work_contact_id.id,
+                            or slip.employee_id.address_home_id.id,
                             "account_id": credit_account_id,
                             "journal_id": slip.journal_id.id,
                             "date": date,
@@ -269,7 +269,7 @@ class HrPayslip(models.Model):
         return {
             "name": line.name,
             "partner_id": line._get_partner_id(credit_account=False)
-            or slip.employee_id.work_contact_id.id,
+            or slip.employee_id.address_home_id.id,
             "account_id": debit_account_id,
             "journal_id": slip.journal_id.id,
             "date": date,
@@ -298,7 +298,7 @@ class HrPayslip(models.Model):
         return {
             "name": line.name,
             "partner_id": line._get_partner_id(credit_account=True)
-            or slip.employee_id.work_contact_id.id,
+            or slip.employee_id.address_home_id.id,
             "account_id": credit_account_id,
             "journal_id": slip.journal_id.id,
             "date": date,
