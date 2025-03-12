@@ -255,21 +255,14 @@ msgstr ""
 #. module: payroll
 #: model_terms:ir.ui.view,arch_db:payroll.view_hr_payslip_by_employees
 msgid ""
-"<span colspan=\"4\" nolabel=\"1\">\n"
-"                        This wizard will generate payslips for all selected "
-"employee(s)\n"
-"                        based on the dates and credit note\n"
-"                        specified\n"
-"                        on Payslips Run.\n"
-"                    </span>"
+"<span colspan=\"2\" nolabel=\"1\">\n"
+"                            This wizard will generate payslips for all "
+"selected employee(s)\n"
+"                            based on the dates and credit note\n"
+"                            specified\n"
+"                            on Payslips Run.\n"
+"                        </span>"
 msgstr ""
-"<span colspan=\"4\" nolabel=\"1\">\n"
-"                        Aquest assistent generarà nòmines per a tots els "
-"empleats seleccionats\n"
-"                        en funció de les dates i la nota de crèdit\n"
-"                        especificat\n"
-"                        a les nòmines Run.\n"
-"                    </span>"
 
 #. module: payroll
 #: model_terms:ir.ui.view,arch_db:payroll.hr_salary_rule_view_form
@@ -978,7 +971,6 @@ msgstr ""
 #: model:ir.model,name:payroll.model_hr_employee
 #: model:ir.model.fields,field_description:payroll.field_hr_payslip__employee_id
 #: model:ir.model.fields,field_description:payroll.field_hr_payslip_line__employee_id
-#: model_terms:ir.ui.view,arch_db:payroll.hr_payslip_view_form
 msgid "Employee"
 msgstr "Empleat"
 
@@ -1656,8 +1648,8 @@ msgstr "Nòmina"
 #, python-format
 msgid "Payslip 'Date From' must be earlier than 'Date To'."
 msgstr ""
-"La \"Data des de\" del full de pagament ha de ser anterior a la \"Data fins a"
-"\"."
+"La \"Data des de\" del full de pagament ha de ser anterior a la \"Data fins "
+"a\"."
 
 #. module: payroll
 #: model:ir.model.fields,field_description:payroll.field_hr_payslip_line__payslip_run_id
@@ -2378,3 +2370,20 @@ msgstr "el resultat afectarà una variable"
 #: model_terms:ir.ui.view,arch_db:payroll.hr_payslip_line_view_form
 msgid "total_net"
 msgstr ""
+
+#~ msgid ""
+#~ "<span colspan=\"4\" nolabel=\"1\">\n"
+#~ "                        This wizard will generate payslips for all "
+#~ "selected employee(s)\n"
+#~ "                        based on the dates and credit note\n"
+#~ "                        specified\n"
+#~ "                        on Payslips Run.\n"
+#~ "                    </span>"
+#~ msgstr ""
+#~ "<span colspan=\"4\" nolabel=\"1\">\n"
+#~ "                        Aquest assistent generarà nòmines per a tots els "
+#~ "empleats seleccionats\n"
+#~ "                        en funció de les dates i la nota de crèdit\n"
+#~ "                        especificat\n"
+#~ "                        a les nòmines Run.\n"
+#~ "                    </span>"
