@@ -81,6 +81,12 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: payroll_contract_advantages
+#: model:ir.model.fields,field_description:payroll_contract_advantages.field_hr_contract_advantage__currency_id
+#: model:ir.model.fields,field_description:payroll_contract_advantages.field_hr_contract_advantage_template__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: payroll_contract_advantages
 #: model:ir.model.fields,field_description:payroll_contract_advantages.field_hr_contract_advantage_template__default_value
 msgid "Default Value"
 msgstr ""
