@@ -17,6 +17,11 @@ msgstr ""
 "X-Generator: Weblate 5.10.4\n"
 
 #. module: payroll_contract_advantages
+#: model:ir.model.fields,field_description:payroll_contract_advantages.field_hr_contract_advantage_template__active
+msgid "Active"
+msgstr ""
+
+#. module: payroll_contract_advantages
 #: model_terms:ir.ui.view,arch_db:payroll_contract_advantages.hr_contract_advantage_template_view_form
 msgid "Advantage Name"
 msgstr "Nome da Vantagem"
@@ -44,6 +49,11 @@ msgstr "O valor da vantagem não pode ser menor que o limite inferior."
 #: model:ir.model.fields,field_description:payroll_contract_advantages.field_hr_contract_advantage__amount
 msgid "Amount"
 msgstr "Total"
+
+#. module: payroll_contract_advantages
+#: model_terms:ir.ui.view,arch_db:payroll_contract_advantages.hr_contract_advantage_template_view_form
+msgid "Archived"
+msgstr ""
 
 #. module: payroll_contract_advantages
 #: model:ir.model.fields,field_description:payroll_contract_advantages.field_hr_contract_advantage__advantage_template_code
