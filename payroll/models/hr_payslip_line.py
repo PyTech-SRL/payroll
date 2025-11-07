@@ -47,6 +47,9 @@ class HrPayslipLine(models.Model):
         "Allow editing", compute="_compute_allow_edit_payslip_lines"
     )
 
+    def _valid_field_parameter(self, field, name):
+        return name == "digits" or super()._valid_field_parameter(field, name)
+
     def _compute_allow_edit_payslip_lines(self):
         self.allow_edit_payslip_lines = (
             self.env["ir.config_parameter"]
