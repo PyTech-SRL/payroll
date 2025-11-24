@@ -1,0 +1,54 @@
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+import base64
+
+from odoo.tests import common
+from odoo.tools.misc import file_path as open_file_path
+
+from odoo.addons.mail.tests.common import mail_new_test_user
+
+
+class TestHrPayrollDocument(common.TransactionCase):
+    def setUp(self):
+        super().setUp()
+        self.env.user.tz = "Europe/Brussels"
+        self.user_admin = self.env.ref("base.user_admin")
+
+        # Fix Company without country
+        self.env.company.country_id = False
+
+        # Test users to use through the various tests
+        self.user_employee = mail_new_test_user(
+            self.env, login="david", groups="base.group_user"
+        )
+        self.user_employee_id = self.user_employee.id
+
+        # Hr Data
+        self.employee_emp = self.env["hr.employee"].create(
+            {
+                "name": "David Employee",
+                "user_id": self.user_employee_id,
+                "company_id": 1,
+                "identification_id": "30831011V",
+            }
+        )
+
+        self.wizard = self._create_wizard(
+            "January", "hr_payroll_document/tests/test.pdf"
+        )
+
+    def _create_wizard(self, subject, file_path):
+        with open(open_file_path(file_path), "rb") as pdf_file:
+            encoded_string = base64.b64encode(pdf_file.read())
+        ir_values = {
+            "name": "test",
+            "type": "binary",
+            "datas": encoded_string,
+            "store_fname": encoded_string,
+            "res_model": "payroll.management.wizard",
+            "res_id": 1,
+        }
+        self.attachment = self.env["ir.attachment"].create(ir_values)
+        self.subject = subject
+        return self.env["payroll.management.wizard"].create(
+            {"payrolls": [self.attachment.id], "subject": self.subject}
+        )
