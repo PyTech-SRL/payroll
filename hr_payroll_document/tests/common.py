@@ -32,9 +32,12 @@ class TestHrPayrollDocument(common.TransactionCase):
             }
         )
 
-        with open(
-            get_module_resource("hr_payroll_document", "tests", "test.pdf"), "rb"
-        ) as pdf_file:
+        self.wizard = self._create_wizard(
+            "January", ["hr_payroll_document", "tests", "test.pdf"]
+        )
+
+    def _create_wizard(self, subject, file_path):
+        with open(get_module_resource(*file_path), "rb") as pdf_file:
             encoded_string = base64.b64encode(pdf_file.read())
         ir_values = {
             "name": "test",
@@ -45,7 +48,7 @@ class TestHrPayrollDocument(common.TransactionCase):
             "res_id": 1,
         }
         self.attachment = self.env["ir.attachment"].create(ir_values)
-        self.subject = "January"
-        self.wizard = self.env["payroll.management.wizard"].create(
+        self.subject = subject
+        return self.env["payroll.management.wizard"].create(
             {"payrolls": [self.attachment.id], "subject": self.subject}
         )

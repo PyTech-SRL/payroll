@@ -5,7 +5,6 @@ import pypdf
 
 from odoo import _
 from odoo.exceptions import UserError, ValidationError
-from odoo.modules.module import get_module_resource
 
 from odoo.addons.hr_payroll_document.tests.common import TestHrPayrollDocument
 
@@ -20,22 +19,8 @@ class TestHRPayrollDocument(TestHrPayrollDocument):
         )
 
     def test_extension_error(self):
-        with open(
-            get_module_resource("hr_payroll_document", "tests", "test.docx"), "rb"
-        ) as pdf_file:
-            encoded_string = base64.b64encode(pdf_file.read())
-        ir_values = {
-            "name": "test",
-            "type": "binary",
-            "datas": encoded_string,
-            "store_fname": encoded_string,
-            "res_model": "payroll.management.wizard",
-            "res_id": 1,
-        }
-        self.attachment = self.env["ir.attachment"].create(ir_values)
-        self.subject = "January"
-        self.wizard = self.env["payroll.management.wizard"].create(
-            {"payrolls": [self.attachment.id], "subject": self.subject}
+        self.wizard = self._create_wizard(
+            "January", ["hr_payroll_document", "tests", "test.docx"]
         )
         with self.assertRaises(ValidationError):
             self.wizard.send_payrolls()
