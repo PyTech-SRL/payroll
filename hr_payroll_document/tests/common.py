@@ -1,5 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import base64
+import contextlib
+from unittest import mock
 
 from odoo.tests import common
 from odoo.tools.misc import file_path as open_file_path
@@ -52,3 +54,18 @@ class TestHrPayrollDocument(common.TransactionCase):
         return self.env["payroll.management.wizard"].create(
             {"payrolls": [self.attachment.id], "subject": self.subject}
         )
+
+    @contextlib.contextmanager
+    def _mock_valid_identification(self, employee, identification_code):
+        def _mocked_validate_payroll_identification(self, code=None):
+            if code is None:
+                code = employee.identification_id
+            return code == identification_code
+
+        with mock.patch.object(
+            type(employee),
+            "_validate_payroll_identification",
+            _mocked_validate_payroll_identification,
+        ) as patch:
+            patch.side_effect = _mocked_validate_payroll_identification
+            yield

@@ -1,7 +1,10 @@
 import base64
+import io
 from base64 import b64decode
 
-from pypdf import PdfReader, PdfWriter
+import pymupdf
+from pypdf import PdfReader, PdfWriter, errors
+from reportlab.pdfgen import canvas
 
 from odoo import _, fields, models
 from odoo.exceptions import UserError, ValidationError
@@ -19,13 +22,48 @@ class PayrollManagamentWizard(models.TransientModel):
         "ir.attachment", "payrol_rel", "doc_id", "attach_id3", copy=False, required=True
     )
 
-    def _extract_employees(self, pdf_reader):
+    def _get_fallback_reader(self, pdf_reader):
+        # Read the file with another reader
+        doc = pymupdf.Document(stream=pdf_reader.stream)
+
+        # Create a new PDF with only the extracted content
+        pdf_content = io.BytesIO()
+        pdf_canvas = canvas.Canvas(pdf_content)
+        for page_number in range(pdf_reader.get_num_pages()):
+            page_content = doc[page_number].get_text().split()
+            # Create a new page with the read content
+            pdf_canvas.drawString(0, 0, " ".join(page_content))
+            pdf_canvas.showPage()
+        pdf_canvas.save()
+
+        # Return a PyPDF reader for the new PDF,
+        # that now is readable
+        return PdfReader(pdf_content)
+
+    def _read_page_content(self, pdf_reader, page, fallback_reader=None):
+        try:
+            page_content = page.extract_text().split()
+        except errors.PdfReadError:
+            if fallback_reader:
+                # The original page cannot be read:
+                # read the simplified page in the fallback_reader
+                page_number = pdf_reader.get_page_number(page)
+                fallback_page = fallback_reader.get_page(page_number)
+                page_content = fallback_page.extract_text().split()
+            else:
+                raise
+        return page_content
+
+    def _extract_employees(self, pdf_reader, fallback_reader=None):
         employee_to_pages = dict()
         not_found_ids = set()
 
         # Find all IDs of the employees
         for page in pdf_reader.pages:
-            for value in page.extract_text().split():
+            page_content = self._read_page_content(
+                pdf_reader, page, fallback_reader=fallback_reader
+            )
+            for value in page_content:
                 if self.validate_id(value) and value != self.env.company.vat:
                     employee = self.env["hr.employee"].search(
                         [("identification_id", "=", value)]
@@ -73,7 +111,14 @@ class PayrollManagamentWizard(models.TransientModel):
 
         reader = PdfReader("/tmp/merged-pdf.pdf")
 
-        employee_to_pages, not_found = self._extract_employees(reader)
+        try:
+            employee_to_pages, not_found = self._extract_employees(reader)
+        except errors.PdfReadError:
+            # Couldn't read the file, try again with another reader
+            fallback_reader = self._get_fallback_reader(reader)
+            employee_to_pages, not_found = self._extract_employees(
+                reader, fallback_reader=fallback_reader
+            )
 
         for employee, pages in employee_to_pages.items():
             encryption_key = (
