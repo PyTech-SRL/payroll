@@ -68,10 +68,10 @@ class TestHRPayrollDocument(TestHrPayrollDocument):
                         "type": "ir.actions.act_window",
                         "res_model": "hr.employee",
                         "views": [
-                            (
-                                self.env.ref("hr.hr_employee_public_view_kanban").id,
-                                "list",
-                            )
+                            (False, "kanban"),
+                            (False, "tree"),
+                            (False, "form"),
+                            (False, "activity"),
                         ],
                     },
                 },
@@ -96,10 +96,10 @@ class TestHRPayrollDocument(TestHrPayrollDocument):
                         "type": "ir.actions.act_window",
                         "res_model": "hr.employee",
                         "views": [
-                            (
-                                self.env.ref("hr.hr_employee_public_view_kanban").id,
-                                "list",
-                            )
+                            (False, "kanban"),
+                            (False, "tree"),
+                            (False, "form"),
+                            (False, "activity"),
                         ],
                     },
                 },
