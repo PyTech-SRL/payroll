@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!--
+    ~ Copyright 2025 Simone Rubino - PyTech
+    ~ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
 <odoo>
     <record id="view_payroll_tree" model="ir.ui.view">
         <field name="name">payroll.view.tree</field>
@@ -94,9 +98,31 @@
                     type="object"
                     groups="hr.group_hr_user"
                 >
-                        Payrolls
-                    </button>
+                    Payrolls
+                </button>
             </div>
+            <div id="o_work_employee_main" position="inside">
+                <group name="payroll" string="Payroll">
+                    <field
+                        name="no_payroll_encryption"
+                        string="Disable encryption"
+                        readonly="not can_edit"
+                    />
+                </group>
+            </div>
+        </field>
+    </record>
+
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <group name="identification_group" position="after">
+                <group name="payroll_group_oca" string="Payroll">
+                    <field name="no_payroll_encryption" string="Disable encryption" />
+                </group>
+            </group>
         </field>
     </record>
 </odoo>
