@@ -30,6 +30,9 @@ HR - Payroll Document
 
 This module have a wizard view to manage the different payrolls of employees which is identified by the identification_id attribute.
 
+By default, the employee's payroll is encrypted using their identification number.
+This behavior can be changed by the employee in their profile or by HR in the employee's form.
+
 **Table of contents**
 
 .. contents::
@@ -58,6 +61,9 @@ Contributors
 
 * Antoni Marroig Campomar <amarroig@apsl.net>
 * Miquel Alzanillas Monserrat <malzanillas@apsl.net>
+* `PyTech <https://www.pytech.it>`_:
+
+  * Simone Rubino <simone.rubino@pytech.it>
 
 Maintainers
 ~~~~~~~~~~~

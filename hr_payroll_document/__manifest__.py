@@ -13,5 +13,7 @@
         "wizard/payroll_management_wizard.xml",
         "security/ir.model.access.csv",
         "data/email_payroll_employee.xml",
+        "views/hr_employee_views.xml",
+        "views/res_users_views.xml",
     ],
 }
