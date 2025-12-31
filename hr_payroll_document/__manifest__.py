@@ -3,6 +3,7 @@
     "summary": "Manage payroll for each employee",
     "author": "APSL, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/payroll",
+    "development_status": "Production/Stable",
     "license": "AGPL-3",
     "category": "Payrolls",
     "version": "16.0.1.1.0",
