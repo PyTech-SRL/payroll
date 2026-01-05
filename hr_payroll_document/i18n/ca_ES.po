@@ -126,6 +126,18 @@ msgid "Created on"
 msgstr "Creat el"
 
 #. module: hr_payroll_document
+#: model_terms:ir.ui.view,arch_db:hr_payroll_document.res_users_view_form_profile
+#: model_terms:ir.ui.view,arch_db:hr_payroll_document.view_employee_form
+msgid "Disable encryption"
+msgstr ""
+
+#. module: hr_payroll_document
+#: model:ir.model.fields,field_description:hr_payroll_document.field_hr_employee__no_payroll_encryption
+#: model:ir.model.fields,field_description:hr_payroll_document.field_res_users__no_payroll_encryption
+msgid "Disable payrolls encryption"
+msgstr ""
+
+#. module: hr_payroll_document
 #: model:ir.model.fields,field_description:hr_payroll_document.field_ir_attachment_payroll_custom__display_name
 #: model:ir.model.fields,field_description:hr_payroll_document.field_payroll_management_wizard__display_name
 msgid "Display Name"
@@ -170,6 +182,16 @@ msgid "Identification ID"
 msgstr "Identificació ID"
 
 #. module: hr_payroll_document
+#: model:ir.model.fields,help:hr_payroll_document.field_hr_employee__no_payroll_encryption
+#: model:ir.model.fields,help:hr_payroll_document.field_res_users__no_payroll_encryption
+msgid ""
+"If this is disabled (default), the PDF payrolls are encrypted using the "
+"Identification No.\n"
+"Only future payrolls are affected by this change, existing payrolls will not "
+"change their encryption status."
+msgstr ""
+
+#. module: hr_payroll_document
 #: model:ir.model.fields,field_description:hr_payroll_document.field_ir_attachment_payroll_custom____last_update
 #: model:ir.model.fields,field_description:hr_payroll_document.field_payroll_management_wizard____last_update
 msgid "Last Modified on"
@@ -197,6 +219,7 @@ msgstr "Els fitxers han de ser de tipus pdf"
 #. module: hr_payroll_document
 #. odoo-python
 #: code:addons/hr_payroll_document/wizard/payroll_management_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:hr_payroll_document.res_users_view_form_profile
 #, python-format
 msgid "Payroll"
 msgstr "Nòmina"
@@ -272,6 +295,11 @@ msgstr "Assumpte"
 #, python-format
 msgid "The field identification ID is not valid"
 msgstr "El camp identificatiu ID no és vàlid"
+
+#. module: hr_payroll_document
+#: model:ir.model,name:hr_payroll_document.model_res_users
+msgid "User"
+msgstr ""
 
 #. module: hr_payroll_document
 #. odoo-python
