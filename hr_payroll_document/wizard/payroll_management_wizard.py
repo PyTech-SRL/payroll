@@ -1,7 +1,7 @@
 import base64
 from base64 import b64decode
 
-from pypdf import PdfReader, PdfWriter
+from pypdf import PdfReader, PdfWriter, errors
 
 from odoo import _, fields, models
 from odoo.exceptions import UserError, ValidationError
@@ -22,49 +22,114 @@ class PayrollManagamentWizard(models.TransientModel):
         copy=False,
     )
 
-    def send_payrolls(self):
-        not_found = set()
-        self.merge_pdfs()
-        reader = PdfReader("/tmp/merged-pdf.pdf")
-        employees = set()
+    def _get_fallback_reader(self, pdf_reader):
+        # Override to use another reader
+        pass
 
-        # Validate if company have country
-        if not self.env.company.country_id:
-            raise UserError(_("You must to filled country field of company"))
+    def _read_page_content(self, pdf_reader, page, fallback_reader=None):
+        try:
+            page_content = page.extract_text().split()
+        except errors.PdfReadError:
+            if fallback_reader:
+                # The original page cannot be read:
+                # read the simplified page in the fallback_reader
+                page_number = pdf_reader.get_page_number(page)
+                fallback_page = fallback_reader.get_page(page_number)
+                page_content = fallback_page.extract_text().split()
+            else:
+                raise
+        return page_content
+
+    def _extract_employees(self, pdf_reader, fallback_reader=None):
+        employee_to_pages = dict()
+        not_found_ids = set()
 
         # Find all IDs of the employees
-        for page in reader.pages:
-            for value in page.extract_text().split():
+        for page in pdf_reader.pages:
+            page_content = self._read_page_content(
+                pdf_reader, page, fallback_reader=fallback_reader
+            )
+            for value in page_content:
                 if self.validate_id(value) and value != self.env.company.vat:
                     employee = self.env["hr.employee"].search(
                         [("identification_id", "=", value)]
                     )
                     if employee:
-                        employees.add(employee)
+                        employee_to_pages.setdefault(employee, []).append(page)
                     else:
-                        not_found.add(value)
+                        not_found_ids.add(value)
                     break
 
-        for employee in list(employees):
-            pdfWriter = PdfWriter()
-            for page in reader.pages:
-                if employee.identification_id in page.extract_text():
-                    # Save pdf with payrolls of employee
-                    pdfWriter.add_page(page)
+        return employee_to_pages, not_found_ids
 
-            path = "/tmp/" + _("Payroll ") + employee.name + ".pdf"
+    def _build_employee_payroll(self, file_name, pdf_pages, encryption_key=None):
+        """Return the path to the created payroll.
 
-            if not employee.no_payroll_encryption:
-                # Encrypt the payroll file with the identification identifier of the employee
-                pdfWriter.encrypt(employee.identification_id, algorithm="AES-256")
+        Optionally encrypt the payroll file with `encryption_key`.
+        """
+        pdfWriter = PdfWriter()
+        for page in pdf_pages:
+            pdfWriter.add_page(page)
 
-            f = open(path, "wb")
+        path = "/tmp/" + file_name
+
+        if encryption_key:
+            pdfWriter.encrypt(encryption_key, algorithm="AES-256")
+
+        with open(path, "wb") as f:
             pdfWriter.write(f)
-            f.close()
+        return path
 
+    def _show_employees_action(self):
+        return {
+            "name": _("Payrolls sent"),
+            "type": "ir.actions.act_window",
+            "res_model": "hr.employee",
+            "views": [
+                (False, "kanban"),
+                (False, "tree"),
+                (False, "form"),
+                (False, "activity"),
+            ],
+        }
+
+    def send_payrolls(self):
+        self.merge_pdfs()
+        # Validate if company have country
+        if not self.env.company.country_id:
+            raise UserError(_("You must to filled country field of company"))
+
+        reader = PdfReader("/tmp/merged-pdf.pdf")
+
+        try:
+            employee_to_pages, not_found = self._extract_employees(reader)
+        except errors.PdfReadError:
+            # Couldn't read the file, try again with another reader
+            fallback_reader = self._get_fallback_reader(reader)
+            if fallback_reader:
+                employee_to_pages, not_found = self._extract_employees(
+                    reader, fallback_reader=fallback_reader
+                )
+            else:
+                raise
+
+        for employee, pages in employee_to_pages.items():
+            encryption_key = (
+                None if employee.no_payroll_encryption else employee.identification_id
+            )
+            path = self._build_employee_payroll(
+                _(
+                    "Payroll %(subject)s %(employee)s.pdf",
+                    employee=employee.name,
+                    subject=self.subject,
+                ),
+                pages,
+                encryption_key=encryption_key,
+            )
             # Send payroll to the employee
             self.send_mail(employee, path)
 
+        next_action = self._show_employees_action()
         if not_found:
             return {
                 "type": "ir.actions.client",
@@ -75,17 +140,7 @@ class PayrollManagamentWizard(models.TransientModel):
                     + ", ".join(list(not_found)),
                     "sticky": True,
                     "type": "warning",
-                    "next": {
-                        "name": _("Payrolls sent"),
-                        "type": "ir.actions.act_window",
-                        "res_model": "hr.employee",
-                        "views": [
-                            (False, "kanban"),
-                            (False, "tree"),
-                            (False, "form"),
-                            (False, "activity"),
-                        ],
-                    },
+                    "next": next_action,
                 },
             }
 
@@ -97,17 +152,7 @@ class PayrollManagamentWizard(models.TransientModel):
                 "message": _("Payrolls sent to employees correctly"),
                 "sticky": False,
                 "type": "success",
-                "next": {
-                    "name": _("Payrolls sent"),
-                    "type": "ir.actions.act_window",
-                    "res_model": "hr.employee",
-                    "views": [
-                        (False, "kanban"),
-                        (False, "tree"),
-                        (False, "form"),
-                        (False, "activity"),
-                    ],
-                },
+                "next": next_action,
             },
         }
 
@@ -167,7 +212,5 @@ class PayrollManagamentWizard(models.TransientModel):
             employee.id, force_send=True
         )
 
-    def validate_id(self, number):
-        return self.env["res.partner"].simple_vat_check(
-            self.env.company.country_id.code, number
-        )
+    def validate_id(self, code):
+        return self.env["hr.employee"]._validate_payroll_identification(code=code)
