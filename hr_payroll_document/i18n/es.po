@@ -228,8 +228,8 @@ msgstr "Nómina"
 #. odoo-python
 #: code:addons/hr_payroll_document/wizard/payroll_management_wizard.py:0
 #, python-format
-msgid "Payroll "
-msgstr "Nómina "
+msgid "Payroll %(subject)s %(employee)s.pdf"
+msgstr ""
 
 #. module: hr_payroll_document
 #: model:mail.template,name:hr_payroll_document.payroll_employee_email_template
@@ -307,3 +307,7 @@ msgstr ""
 #, python-format
 msgid "You must to filled country field of company"
 msgstr "Falta rellenar el campo del país de la empresa"
+
+#, python-format
+#~ msgid "Payroll "
+#~ msgstr "Nómina "
