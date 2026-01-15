@@ -21,7 +21,8 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[hr_payroll_document](hr_payroll_document/) | 16.0.1.3.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Manage payroll for each employee
+[hr_payroll_document](hr_payroll_document/) | 16.0.1.3.1 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Manage payroll for each employee
+[hr_payroll_document_pymupdf](hr_payroll_document_pymupdf/) | 16.0.1.0.1 | <a href='https://github.com/SirPyTech'><img src='https://github.com/SirPyTech.png' width='32' height='32' style='border-radius:50%;' alt='SirPyTech'/></a> | Try harder to read a PDF payslip with PyMuPDF.
 [hr_payroll_period](hr_payroll_period/) | 16.0.1.1.0 | <a href='https://github.com/nimarosa'><img src='https://github.com/nimarosa.png' width='32' height='32' style='border-radius:50%;' alt='nimarosa'/></a> | Add payroll periods
 [payroll](payroll/) | 16.0.1.6.3 | <a href='https://github.com/norlinhenrik'><img src='https://github.com/norlinhenrik.png' width='32' height='32' style='border-radius:50%;' alt='norlinhenrik'/></a> <a href='https://github.com/nimarosa'><img src='https://github.com/nimarosa.png' width='32' height='32' style='border-radius:50%;' alt='nimarosa'/></a> | Manage your employee payroll records
 [payroll_account](payroll_account/) | 16.0.1.1.0 | <a href='https://github.com/appstogrow'><img src='https://github.com/appstogrow.png' width='32' height='32' style='border-radius:50%;' alt='appstogrow'/></a> <a href='https://github.com/nimarosa'><img src='https://github.com/nimarosa.png' width='32' height='32' style='border-radius:50%;' alt='nimarosa'/></a> | Manage your payroll to accounting
