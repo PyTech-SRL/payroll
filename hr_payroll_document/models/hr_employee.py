@@ -14,6 +14,7 @@ class Employee(models.Model):
         "the PDF payrolls are encrypted using the Identification No.\n"
         "Only future payrolls are affected by this change, "
         "existing payrolls will not change their encryption status.",
+        groups="hr.group_hr_user",
     )
 
     def _validate_payroll_identification(self, code=None):
