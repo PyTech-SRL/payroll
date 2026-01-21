@@ -6,7 +6,7 @@
     "development_status": "Production/Stable",
     "license": "AGPL-3",
     "category": "Payrolls",
-    "version": "16.0.1.3.1",
+    "version": "16.0.1.3.2",
     "depends": ["hr", "base_vat"],
     "maintainers": ["peluko00"],
     "external_dependencies": {
