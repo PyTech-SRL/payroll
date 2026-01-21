@@ -142,3 +142,16 @@ class TestHRPayrollDocument(common.TransactionCase):
         payroll_content = base64.b64decode(payroll.datas)
         payroll_pdf = pypdf.PdfReader(io.BytesIO(payroll_content))
         self.assertFalse(payroll_pdf.is_encrypted)
+
+    def test_optional_encryption_fetch(self):
+        """If the user can't access the employees,
+        the optional encryption field is not fetched."""
+        # Arrange
+        employee = self.employee_emp
+        employee_with_self = employee.with_user(employee.user_id)
+        # pre-condition
+        self.assertFalse(employee_with_self.has_access("read"))
+
+        # Assert: reading a field triggers fetching all the accessible fields
+        employee_with_self.invalidate_recordset()
+        self.assertTrue(employee_with_self.user_id)
