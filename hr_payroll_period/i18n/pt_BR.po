@@ -6,78 +6,80 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-02-25 14:09+0000\n"
+"Last-Translator: Cristiano Mafra Junior <cristiano.mafracontanto@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "%(name)s Period #%(number)s"
-msgstr ""
+msgstr "%(name)s Período #%(number)s"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "%s day of the current period"
-msgstr ""
+msgstr "%s dia do período atual"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "%s day of the next period"
-msgstr ""
+msgstr "%s dia do próximo período"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__active
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__active
 msgid "Active"
-msgstr ""
+msgstr "Ativo"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Annually (1)"
-msgstr ""
+msgstr "Anualmente (1)"
 
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_employee_base
 msgid "Basic Employee"
-msgstr ""
+msgstr "Funcionário Basico"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Bi-monthly (6)"
-msgstr ""
+msgstr "Bimestral (6)"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Bi-weekly (26)"
-msgstr ""
+msgstr "Quinzenal (26)"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_period_form
 msgid "Close Period"
-msgstr ""
+msgstr "Período de encerramento"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__state__done
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_period__state__done
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_search
 msgid "Closed"
-msgstr ""
+msgstr "Fechado"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__company_id
@@ -86,70 +88,70 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__company_id
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.hr_payslip_run_filter
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_form
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_employee_base__contract_id
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_employee_public__contract_id
 msgid "Contract"
-msgstr ""
+msgstr "Contrato"
 
 #. module: hr_payroll_period
 #: model:ir.actions.server,name:hr_payroll_period.ir_cron_hr_payroll_period_ir_actions_server
 #: model:ir.cron,cron_name:hr_payroll_period.ir_cron_hr_payroll_period
 msgid "Create Next Fiscal Year"
-msgstr ""
+msgstr "Criar Próximo Ano Fiscal"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_form
 msgid "Create Periods"
-msgstr ""
+msgstr "Criar Períodos"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__create_uid
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Criado por"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__create_date
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Criado em"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_employee__contract_id
 msgid "Current Contract"
-msgstr ""
+msgstr "Contrato Atual"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,help:hr_payroll_period.field_hr_employee__contract_id
 msgid "Current contract of the employee"
-msgstr ""
+msgstr "Contrato atual do funcionário"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Daily (365)"
-msgstr ""
+msgstr "Diário (365)"
 
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_date_range_type
 msgid "Date Range Type"
-msgstr ""
+msgstr "Tipo de Intervalo de Datas"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_payslip__date_payment
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_payslip_run__date_payment
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__date_payment
 msgid "Date of Payment"
-msgstr ""
+msgstr "Data de Pagamento"
 
 #. module: hr_payroll_period
 #. odoo-python
@@ -163,93 +165,93 @@ msgstr ""
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_date_range_type_hr_form_view
 msgid "Daterange Type"
-msgstr ""
+msgstr "Tipo de Intervalo de Datas"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__payment_day
 msgid "Day of Payment"
-msgstr ""
+msgstr "Dia de Pagamento"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,help:hr_payroll_period.field_hr_contract__schedule_pay
 msgid "Defines the frequency of the wage payment."
-msgstr ""
+msgstr "Define a frequência do pagamento do salário."
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__display_name
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Exibir Nome"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__state__draft
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_period__state__draft
 msgid "Draft"
-msgstr ""
+msgstr "Rascunho"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_period_form
 msgid "Duration"
-msgstr ""
+msgstr "Duração"
 
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_contract
 msgid "Employee Contract"
-msgstr ""
+msgstr "Contrato do Funcionário"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__date_end
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__date_end
 msgid "End date"
-msgstr ""
+msgstr "Data Final"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Fifth"
-msgstr ""
+msgstr "Quinto"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "First"
-msgstr ""
+msgstr "Primeiro"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__fiscalyear_id
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_form
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_search
 msgid "Fiscal Year"
-msgstr ""
+msgstr "Ano Fiscal"
 
 #. module: hr_payroll_period
 #: model:ir.ui.menu,name:hr_payroll_period.hr_period_configure
 msgid "Fiscal Years and Periods"
-msgstr ""
+msgstr "Anos Fiscais e Períodos"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_form
 msgid "Fiscal year..."
-msgstr ""
+msgstr "Ano fiscal..."
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__payment_week__1
 msgid "Following Week"
-msgstr ""
+msgstr "Semana Seguinte"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Fourth"
-msgstr ""
+msgstr "Quarto"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__payment_weekday__5
 msgid "Friday"
-msgstr ""
+msgstr "Sexta-feira"
 
 #. module: hr_payroll_period
 #. odoo-python
@@ -257,147 +259,147 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.hr_payslip_run_form
 #, python-format
 msgid "Generate Payslips"
-msgstr ""
+msgstr "Gerar Holerites"
 
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_payslip_employees
 msgid "Generate payslips for all selected employees"
-msgstr ""
+msgstr "Gerar holerites para todos os funcionários selecionados"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.hr_payslip_run_filter
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_search
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_period_search
 msgid "Group By..."
-msgstr ""
+msgstr "Agrupar por..."
 
 #. module: hr_payroll_period
 #: model:date.range.type,name:hr_payroll_period.date_range_hr_fiscal_year
 #: model:ir.model,name:hr_payroll_period.model_hr_fiscalyear
 msgid "HR Fiscal Year"
-msgstr ""
+msgstr "Ano Fiscal de RH"
 
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_period
 msgid "HR Payroll Period"
-msgstr ""
+msgstr "Período da Folha de Pagamento (RH)"
 
 #. module: hr_payroll_period
 #: model:date.range.type,name:hr_payroll_period.date_range_hr_period
 msgid "HR Period"
-msgstr ""
+msgstr "Período de RH"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__id
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_date_range_type__hr_fiscal_year
 msgid "Is HR Fiscal Year?"
-msgstr ""
+msgstr "É Ano Fiscal de RH?"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_date_range_type__hr_period
 msgid "Is HR period?"
-msgstr ""
+msgstr "É período de RH?"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Last"
-msgstr ""
+msgstr "Último"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear____last_update
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificação em"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__write_uid
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última Atualização por"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__write_date
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última Atualização em"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__payment_weekday__1
 msgid "Monday"
-msgstr ""
+msgstr "Segunda"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Monthly (12)"
-msgstr ""
+msgstr "Mensal (12)"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__name
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_payslip_run__name
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__number
 msgid "Number"
-msgstr ""
+msgstr "Número"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__state__open
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_period__state__open
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_search
 msgid "Open"
-msgstr ""
+msgstr "Aberto"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_period_form
 msgid "Open Period"
-msgstr ""
+msgstr "Período Aberto"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.hr_payslip_run_filter
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_payslip_filter
 msgid "Payment Date"
-msgstr ""
+msgstr "Data de Pagamento"
 
 #. module: hr_payroll_period
 #: model:ir.actions.act_window,name:hr_payroll_period.action_hr_fiscalyear
 #: model:ir.ui.menu,name:hr_payroll_period.menu_action_hr_fiscalyear
 msgid "Payroll Fiscal Years"
-msgstr ""
+msgstr "Anos Fiscais da Folha de Pagamento"
 
 #. module: hr_payroll_period
 #: model:ir.actions.act_window,name:hr_payroll_period.action_hr_period
 #: model:ir.ui.menu,name:hr_payroll_period.menu_action_hr_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_period_form
 msgid "Payroll Periods"
-msgstr ""
+msgstr "Períodos de Folha de Pagamento"
 
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_payslip
 msgid "Payslip"
-msgstr ""
+msgstr "Holerite"
 
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_payslip_run
 msgid "Payslip Batches"
-msgstr ""
+msgstr "Lotes de Holerite"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__payslip_ids
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_period_form
 msgid "Payslips"
-msgstr ""
+msgstr "Holerites"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_payslip__hr_period_id
@@ -405,40 +407,40 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_form
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_period_search
 msgid "Period"
-msgstr ""
+msgstr "Período"
 
 #. module: hr_payroll_period
 #: model:ir.actions.act_window,name:hr_payroll_period.date_range_type_hr_action
 #: model:ir.ui.menu,name:hr_payroll_period.menu_date_range_type_action
 msgid "Period Types"
-msgstr ""
+msgstr "Tipos de Período"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__period_ids
 msgid "Periods"
-msgstr ""
+msgstr "Períodos"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Quarterly (4)"
-msgstr ""
+msgstr "Trimestral (4)"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_period_form
 msgid "Re-Open Period"
-msgstr ""
+msgstr "Reabrir Período"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__payment_week__0
 msgid "Same Week"
-msgstr ""
+msgstr "Mesma Semana"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__payment_weekday__6
 msgid "Saturday"
-msgstr ""
+msgstr "Sábado"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__schedule_pay
@@ -446,78 +448,78 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_payslip_run__schedule_pay
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__schedule_pay
 msgid "Schedule Pay"
-msgstr ""
+msgstr "Agendar Pagamento"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_contract__schedule_pay
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.hr_payslip_run_filter
 msgid "Scheduled Pay"
-msgstr ""
+msgstr "Pagamento Agendado"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_search
 msgid "Search Fiscalyear"
-msgstr ""
+msgstr "Pesquisar Ano Fiscal"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_period_search
 msgid "Search Period"
-msgstr ""
+msgstr "Pesquisar Período"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Second"
-msgstr ""
+msgstr "Segundo"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__payment_week__2
 msgid "Second Following Week"
-msgstr ""
+msgstr "Segunda Semana Seguinte"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Semi-annually (2)"
-msgstr ""
+msgstr "Semestral (2)"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Semi-monthly (24)"
-msgstr ""
+msgstr "Quinzenal (24)"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_fiscalyear_form
 msgid "Set To Draft"
-msgstr ""
+msgstr "Definir como Rascunho"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__date_start
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__date_start
 msgid "Start date"
-msgstr ""
+msgstr "Data de Início"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__state
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__state
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__payment_weekday__0
 msgid "Sunday"
-msgstr ""
+msgstr "Domingo"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,help:hr_payroll_period.field_hr_fiscalyear__active
 #: model:ir.model.fields,help:hr_payroll_period.field_hr_period__active
 msgid ""
 "The active field allows you to hide the date range without removing it."
-msgstr ""
+msgstr "O campo ativo permite ocultar o intervalo de datas sem removê-lo."
 
 #. module: hr_payroll_period
 #. odoo-python
@@ -527,6 +529,8 @@ msgid ""
 "The company on the selected period must be the same as the company on the "
 "payslip batch."
 msgstr ""
+"A empresa no período selecionado deve ser a mesma que a empresa no lote de "
+"holerites."
 
 #. module: hr_payroll_period
 #. odoo-python
@@ -536,13 +540,14 @@ msgid ""
 "The company on the selected period must be the same as the company on the "
 "payslip."
 msgstr ""
+"A empresa no período selecionado deve ser a mesma que a empresa no holerite."
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_payslip_run.py:0
 #, python-format
 msgid "The payslip batch %s still has unconfirmed payslips."
-msgstr ""
+msgstr "O lote de holerites %s ainda possui holerites não confirmados."
 
 #. module: hr_payroll_period
 #. odoo-python
@@ -559,56 +564,56 @@ msgstr ""
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Third"
-msgstr ""
+msgstr "Terceiro"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__payment_weekday__4
 msgid "Thursday"
-msgstr ""
+msgstr "Quinta-feira"
 
 #. module: hr_payroll_period
 #: model_terms:ir.ui.view,arch_db:hr_payroll_period.view_hr_period_search
 msgid "To Close"
-msgstr ""
+msgstr "Para Fechar"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__payment_weekday__2
 msgid "Tuesday"
-msgstr ""
+msgstr "Terça-feira"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__type_id
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__type_id
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__type_name
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_period__type_name
 msgid "Type Name"
-msgstr ""
+msgstr "Nome do Tipo"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields.selection,name:hr_payroll_period.selection__hr_fiscalyear__payment_weekday__3
 msgid "Wednesday"
-msgstr ""
+msgstr "Quarta-Feira"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__payment_week
 msgid "Week of Payment"
-msgstr ""
+msgstr "Semana de Pagamento"
 
 #. module: hr_payroll_period
 #: model:ir.model.fields,field_description:hr_payroll_period.field_hr_fiscalyear__payment_weekday
 msgid "Weekday of Payment"
-msgstr ""
+msgstr "Dia da Semana do Pagamento"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Weekly (52)"
-msgstr ""
+msgstr "Semanal (52)"
 
 #. module: hr_payroll_period
 #. odoo-python
@@ -616,10 +621,12 @@ msgstr ""
 #, python-format
 msgid "You can not set to draft a period that already has payslips computed"
 msgstr ""
+"Você não pode definir como rascunho um período que já possui holerites "
+"calculados"
 
 #. module: hr_payroll_period
 #. odoo-python
 #: code:addons/hr_payroll_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "You must create periods before confirming the fiscal year."
-msgstr ""
+msgstr "Você deve criar períodos antes de confirmar o ano fiscal."
