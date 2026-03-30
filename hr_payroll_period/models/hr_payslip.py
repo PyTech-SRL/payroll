@@ -78,4 +78,4 @@ class HrPayslip(models.Model):
             vals["hr_period_id"] = period.id
         elif vals.get("date_to") and not vals.get("date_payment"):
             vals["date_payment"] = vals["date_to"]
-        return super(HrPayslip, self).create(vals)
+        return super().create(vals)

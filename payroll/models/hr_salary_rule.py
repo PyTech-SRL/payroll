@@ -75,8 +75,10 @@ class HrSalaryRule(models.Model):
             # inputs: object containing the computed inputs.
             # payroll: object containing miscellaneous values related to payroll
             # current_contract: object with values calculated from the current contract
-            # result_rules: object with a dict of qty, rate, amount an total of calculated rules
-            # tools: object that contain libraries and tools that can be used in calculations
+            # result_rules: object with a dict of qty, rate, amount,
+            # and total of calculated rules
+            # tools: object that contain libraries and tools that
+            # can be used in calculations
 
             # Available compute variables:
             #-------------------------------
@@ -129,16 +131,20 @@ class HrSalaryRule(models.Model):
             # worked_days: object containing the computed worked days.
             # inputs: object containing the computed inputs.
             # payroll: object containing miscellaneous values related to payroll
-            # current_contract: object with values calculated from the current contract
-            # result_rules: object with a dict of qty, rate, amount an total of calculated rules
-            # tools: object that contain libraries and tools that can be used in calculations
+            # current_contract: object with values calculated from
+            # the current contract
+            # result_rules: object with a dict of qty, rate, amount,
+            # and total of calculated rules
+            # tools: object that contain libraries and tools that
+            # can be used in calculations
 
             # Available compute variables:
             #-------------------------------
             # result: returned value have to be set in the variable 'result'
             # result_rate: the rate that will be applied to "result".
             # result_qty: the quantity of units that will be multiplied to "result".
-            # result_name: if this variable is computed, it will contain the name of the line.
+            # result_name: if this variable is computed, it will
+            # contain the name of the line.
 
             # Example:
             #-------------------------------
@@ -208,7 +214,7 @@ class HrSalaryRule(models.Model):
         :rtype: {"name": string, "quantity": float, "rate": float, "amount": float}
         """
         self.ensure_one()
-        method = "_compute_rule_{}".format(self.amount_select)
+        method = f"_compute_rule_{self.amount_select}"
         return api.call_kw(
             self, method, [self.ids, localdict], {"context": self.env.context}
         )
@@ -287,7 +293,7 @@ Here is the error received:
                  given contract. Return False otherwise.
         """
         self.ensure_one()
-        method = "_satisfy_condition_{}".format(self.condition_select)
+        method = f"_satisfy_condition_{self.condition_select}"
         if self.parent_rule_id:
             current_result = api.call_kw(self, method, [self.ids, localdict], {})
             parent_result = self.parent_rule_id._satisfy_condition(localdict)
