@@ -146,10 +146,7 @@ class HrFiscalYear(models.Model):
             schedule_name = next(
                 (s[1] for s in get_schedules(self) if s[0] == self.schedule_pay), False
             )
-            self.name = "%(year)s - %(schedule)s" % {
-                "year": year,
-                "schedule": schedule_name,
-            }
+            self.name = f"{year} - {schedule_name}"
 
     def get_generator_vals(self):
         self.ensure_one()
@@ -338,11 +335,7 @@ class HrFiscalYear(models.Model):
 
         fiscal_year = self.create(
             {
-                "name": "%(year)s - %(schedule)s"
-                % {
-                    "year": next_year,
-                    "schedule": schedule_name,
-                },
+                "name": f"{next_year} - {schedule_name}",
                 "date_start": fiscal_year_start,
                 "date_end": fiscal_year_end,
                 "schedule_pay": schedule_pay,

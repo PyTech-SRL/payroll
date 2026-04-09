@@ -7,7 +7,7 @@ from odoo import fields
 _logger = logging.getLogger(__name__)
 
 
-class BaseBrowsableObject(object):
+class BaseBrowsableObject:
     def __init__(self, vals_dict):
         self.__dict__["base_fields"] = ["base_fields", "dict"]
         self.dict = vals_dict
@@ -210,7 +210,8 @@ class Payslips(BrowsableObject):
         self.env.cr.execute(
             """SELECT sum(case when hp.credit_note is not True then
             (pl.total) else (-pl.total) end)
-                    FROM hr_payslip as hp, hr_payslip_line as pl, hr_salary_rule_category as rc
+                    FROM hr_payslip as hp, hr_payslip_line as pl,
+                         hr_salary_rule_category as rc
                     WHERE hp.employee_id = %s AND hp.state = 'done'
                     AND hp.date_from >= %s AND hp.date_to <= %s AND hp.id = pl.slip_id
                     AND rc.id = pl.category_id AND rc.code in %s""",
@@ -233,7 +234,8 @@ class Payslips(BrowsableObject):
         self.env.cr.execute(
             """SELECT avg(case when hp.credit_note is not True then
             (pl.total) else (-pl.total) end)
-                    FROM hr_payslip as hp, hr_payslip_line as pl, hr_salary_rule_category as rc
+                    FROM hr_payslip as hp, hr_payslip_line as pl,
+                         hr_salary_rule_category as rc
                     WHERE hp.employee_id = %s AND hp.state = 'done'
                     AND hp.date_from >= %s AND hp.date_to <= %s AND hp.id = pl.slip_id
                     AND rc.id = pl.category_id AND rc.code in %s""",
@@ -258,7 +260,8 @@ class Payslips(BrowsableObject):
                 SELECT DATE_TRUNC('month',hp.date_from) AS date_month,
                     sum(case when hp.credit_note is not True then
                         (pl.total) else (-pl.total) end) AS total
-                FROM hr_payslip as hp, hr_payslip_line as pl, hr_salary_rule_category as rc
+                FROM hr_payslip as hp, hr_payslip_line as pl,
+                     hr_salary_rule_category as rc
                 WHERE hp.employee_id = %s AND hp.state = 'done'
                 AND hp.date_from >= %s AND hp.date_to <= %s AND hp.id = pl.slip_id
                 AND rc.id = pl.category_id AND rc.code in %s
@@ -282,7 +285,8 @@ class Payslips(BrowsableObject):
         self.env.cr.execute(
             """SELECT max(case when hp.credit_note is not True then
             (pl.total) else (-pl.total) end)
-                    FROM hr_payslip as hp, hr_payslip_line as pl, hr_salary_rule_category as rc
+                    FROM hr_payslip as hp, hr_payslip_line as pl,
+                         hr_salary_rule_category as rc
                     WHERE hp.employee_id = %s AND hp.state = 'done'
                     AND hp.date_from >= %s AND hp.date_to <= %s AND hp.id = pl.slip_id
                     AND rc.id = pl.category_id AND rc.code in %s""",
@@ -307,7 +311,8 @@ class Payslips(BrowsableObject):
                 SELECT DATE_TRUNC('month',hp.date_from) AS date_month,
                     sum(case when hp.credit_note is not True then
                         (pl.total) else (-pl.total) end) AS total
-                FROM hr_payslip as hp, hr_payslip_line as pl, hr_salary_rule_category as rc
+                FROM hr_payslip as hp, hr_payslip_line as pl,
+                     hr_salary_rule_category as rc
                 WHERE hp.employee_id = %s AND hp.state = 'done'
                 AND hp.date_from >= %s AND hp.date_to <= %s AND hp.id = pl.slip_id
                 AND rc.id = pl.category_id AND rc.code in %s
@@ -331,7 +336,8 @@ class Payslips(BrowsableObject):
         self.env.cr.execute(
             """SELECT min(case when hp.credit_note is not True then
             (pl.total) else (-pl.total) end)
-                    FROM hr_payslip as hp, hr_payslip_line as pl, hr_salary_rule_category as rc
+                    FROM hr_payslip as hp, hr_payslip_line as pl,
+                         hr_salary_rule_category as rc
                     WHERE hp.employee_id = %s AND hp.state = 'done'
                     AND hp.date_from >= %s AND hp.date_to <= %s AND hp.id = pl.slip_id
                     AND rc.id = pl.category_id AND rc.code in %s""",
@@ -356,7 +362,8 @@ class Payslips(BrowsableObject):
                 SELECT DATE_TRUNC('month',hp.date_from) AS date_month,
                     sum(case when hp.credit_note is not True then
                         (pl.total) else (-pl.total) end) AS total
-                FROM hr_payslip as hp, hr_payslip_line as pl, hr_salary_rule_category as rc
+                FROM hr_payslip as hp, hr_payslip_line as pl,
+                     hr_salary_rule_category as rc
                 WHERE hp.employee_id = %s AND hp.state = 'done'
                 AND hp.date_from >= %s AND hp.date_to <= %s AND hp.id = pl.slip_id
                 AND rc.id = pl.category_id AND rc.code in %s

@@ -280,7 +280,7 @@ class HrPayslip(models.Model):
             raise UserError(
                 _("You cannot delete a payslip which is not draft or cancelled")
             )
-        return super(HrPayslip, self).unlink()
+        return super().unlink()
 
     def compute_sheet(self):
         for payslip in self:
@@ -407,7 +407,8 @@ class HrPayslip(models.Model):
         # Will be removed in next versions.
         """
         Inputs computation.
-        @returns: Returns a dict with the inputs that are fetched from the salary_structure
+        @returns: Returns a dict with the inputs that are fetched
+        from the salary_structure
         associated rules for the given contracts.
         """
         res = []
@@ -678,7 +679,8 @@ class HrPayslip(models.Model):
             return res
         contract = self.env["hr.contract"].browse(contract_ids[0])
         res["value"].update({"contract_id": contract.id})
-        # We check if struct_id is already filled, otherwise we assign the contract struct.
+        # We check if struct_id is already filled.
+        # Otherwise, we assign the contract struct.
         # If contract don't have a struct, we return.
         if struct_id:
             res["value"].update({"struct_id": struct_id[0]})

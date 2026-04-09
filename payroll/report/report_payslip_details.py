@@ -101,15 +101,18 @@ class PayslipDetailsReport(models.AbstractModel):
     @api.model
     def _get_report_values(self, docids, data=None):
         payslips = self.env["hr.payslip"].browse(docids)
+        payslip_lines = payslips.mapped("line_ids").filtered(
+            lambda r: r.appears_on_payslip
+        )
+        details_by_rule_category = self.get_details_by_rule_category(payslip_lines)
+        lines_by_contribution_register = self.get_lines_by_contribution_register(
+            payslip_lines
+        )
         return {
             "doc_ids": docids,
             "doc_model": "hr.payslip",
             "docs": payslips,
             "data": data,
-            "get_details_by_rule_category": self.get_details_by_rule_category(
-                payslips.mapped("line_ids").filtered(lambda r: r.appears_on_payslip)
-            ),
-            "get_lines_by_contribution_register": self.get_lines_by_contribution_register(  # noqa: disable=B950
-                payslips.mapped("line_ids").filtered(lambda r: r.appears_on_payslip)
-            ),
+            "get_details_by_rule_category": details_by_rule_category,
+            "get_lines_by_contribution_register": lines_by_contribution_register,
         }

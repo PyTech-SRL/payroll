@@ -54,7 +54,6 @@ class TestWorkedDays(TestPayslipBase):
             )
 
     def _common_contract_leave_setup(self):
-
         self.richard_emp.resource_id.calendar_id = self.full_calendar
         self.richard_emp.contract_ids.resource_calendar_id = self.full_calendar
 
@@ -82,7 +81,6 @@ class TestWorkedDays(TestPayslipBase):
         )
 
     def test_worked_days_negative(self):
-
         self._common_contract_leave_setup()
 
         # Set system parameter
@@ -115,7 +113,6 @@ class TestWorkedDays(TestPayslipBase):
         )
 
     def test_leaves_positive(self):
-
         self._common_contract_leave_setup()
 
         # Set system parameter

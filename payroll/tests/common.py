@@ -7,7 +7,7 @@ from odoo.tests.common import TransactionCase
 
 class TestPayslipBase(TransactionCase):
     def setUp(self):
-        super(TestPayslipBase, self).setUp()
+        super().setUp()
 
         self.CalendarAttendance = self.env["resource.calendar.attendance"]
         self.Contract = self.env["hr.contract"]
@@ -96,7 +96,9 @@ class TestPayslipBase(TransactionCase):
                 "condition_select": "none",
                 "amount_select": "fix",
                 "amount_fix": 10.0,
-                "quantity": "worked_days.WORK100 and worked_days.WORK100.number_of_days",
+                "quantity": (
+                    "worked_days.WORK100 and worked_days.WORK100.number_of_days"
+                ),
             }
         )
         self.rule_commission = self.SalaryRule.create(
