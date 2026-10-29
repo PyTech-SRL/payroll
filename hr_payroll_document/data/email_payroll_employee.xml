@@ -2,19 +2,21 @@
 <odoo noupdate="1">
     <record id="payroll_employee_email_template" model="mail.template">
         <field name="name">Payroll Employee</field>
-        <field name="model_id" ref="hr.model_hr_employee" />
-        <field name="email_from">{{object.company_id.email}}</field>
-        <field name="email_to">{{object.work_email}}</field>
-        <field name="subject">Payslip {{ctx.get('subject')}}</field>
+        <field name="model_id" ref="model_ir_attachment_payroll_custom" />
+        <field name="email_from">{{object.employee_id.company_id.email}}</field>
+        <field name="email_to">{{object.employee_id.work_email}}</field>
+        <field name="lang">{{object.employee_id.lang}}</field>
+        <field name="subject">Payslip {{object.subject}}</field>
         <field name="auto_delete" eval="False" />
         <field name="body_html" type="html">
             <p>
-                Dear <t t-out="object.name or ''">employee</t>,<br />
-                Please find attached your payslip for <t
-                    t-out="ctx.get('subject')"
-                />.<br />
+                Dear <t t-out="object.employee_id.name or ''">employee</t>,<br />
+                Please find attached your payslip for <t t-out="object.subject" />.<br
+                />
+                <br />
                 For any questions or clarifications regarding the contents of your payslip, please contact the HR Department.<br
                 />
+                <br />
                 If you experience any technical issues viewing or downloading the file, please reach out to the Quality support team.
             </p>
         </field>
