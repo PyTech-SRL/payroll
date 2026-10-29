@@ -213,6 +213,7 @@ class PayrollManagamentWizard(models.TransientModel):
         mail_template.with_context(subject=self.subject).send_mail(
             employee.id,
             force_send=True,
+            email_layout_xmlid="mail.mail_notification_light",
             email_values={
                 "attachment_ids": [fields.Command.create(ir_values)],
             },
